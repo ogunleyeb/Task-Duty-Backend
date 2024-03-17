@@ -15,7 +15,7 @@ const createTask = async (req, res) => {
 
   const task = await Task.create({ ...req.body });
 
-  res.status(201).json({ task }, { message: "Task created sucessfully!" });
+  res.status(201).json({ message: "Task created sucessfully!" });
 };
 
 const editTask = async (req, res) => {
@@ -41,13 +41,13 @@ const deleteTask = async (req, res) => {
     return res.status(400).json({ message: `ID: ${id} is not valid` });
   }
 
-  const task = await Task.findOneAndDelete({ _ID: id }, { ...req.body });
+  const task = await Task.findOneAndDelete({ _id: id }, { ...req.body });
 
   if (!task) {
     return res.status(404).json({ message: `No Task with ID:${id}` });
   }
 
-  res.status(200).json({ message: "Task successfully Deleted" });
+  res.status(200).json({ message: "Task Successfully Deleted" });
 };
 
 const eachTask = async (req, res) => {
@@ -57,10 +57,10 @@ const eachTask = async (req, res) => {
     return res.status(400).json({ message: `ID: ${id} is not valid` });
   }
 
-  const task = await Task.findOneAndDelete({ _ID: id });
+  const task = await Task.findOne({ _id: id }, { ...req.body });
 
   if (!task) {
-    return res.status(404).json({ message: `No Task with ID:${id}` });
+    return res.status(404).json({ message: `No Task with ID: ${id}` });
   }
 
   res.status(200).json({ task });
