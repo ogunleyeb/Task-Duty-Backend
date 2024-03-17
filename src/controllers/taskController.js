@@ -15,7 +15,7 @@ const createTask = async (req, res) => {
 
   const task = await Task.create({ ...req.body });
 
-  res.status(201).json({ message: "Task created sucessfully!" });
+  res.status(201).json({ task }, { message: "Task created sucessfully!" });
 };
 
 const editTask = async (req, res) => {

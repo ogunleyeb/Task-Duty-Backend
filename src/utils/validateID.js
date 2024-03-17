@@ -5,4 +5,4 @@ const validateID = (id) => {
   return isValid;
 };
 
-exports defau validateID;
+export default validateID;
